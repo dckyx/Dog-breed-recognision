@@ -1,0 +1,7 @@
+opencv-python~=4.11.0.86
+numpy~=2.2.6
+scikit-learn~=1.6.1
+torch~=2.7.0
+kagglehub~=0.3.12
+torchvision~=0.22.0
+pillow~=11.2.1
