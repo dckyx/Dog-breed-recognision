@@ -1,5 +1,3 @@
-# Dog Breed Recognition — project README (from code)
-
 This repository implements a dog breed classifier in Python with **PyTorch** (ResNet‑18 backbone) in a modular way:
 - `downloader.py`: downloads the Kaggle dataset (70 dog breeds) and copies it to `dane/pieski/`.
 - `loader.py`: loads images from class folders into NumPy arrays (`IMG_SIZE=128`), returns `(X, y, categories)`.
@@ -63,6 +61,3 @@ predict("path/to/dog.jpg", cats, model=model)
 - Several files include literal `...` placeholders, so those spots must be filled for the code to run (e.g., training loop details, evaluation loop body, prediction transforms). Fix these before running.
 - In `model.py`, the old `pretrained=True` API may warn/fail on latest Torch. Switch to `weights=` as noted.
 - Ensure `IMG_SIZE=128` is used consistently in train & predict.
-
----
-This README was generated directly from the uploaded code to match the actual modules and their behavior.
