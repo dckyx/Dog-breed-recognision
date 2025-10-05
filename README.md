@@ -20,29 +20,6 @@ kagglehub
 ## Data
 `downloader.pobierz_dane()` downloads **gpiosenka/70-dog-breedsimage-data-set** via KaggleHub to a temp dir and copies it to `dane/pieski/` preserving the folder structure expected by `loader.zaladuuj()` (class‑per‑folder).
 
-## Typical workflow (Python)
-```python
-from downloader import pobierz_dane
-from loader import zaladuuj, IMG_SIZE
-from trainer import train
-from evaluator import ocen_model
-from predictator import predict
-
-# 1) Get data and load splits
-root = pobierz_dane()  # -> dane/pieski
-X_train, y_train, cats = zaladuuj(f"{root}/train")
-X_val,   y_val,   _   = zaladuuj(f"{root}/val", kategorie_zew=cats)
-X_test,  y_test,  _   = zaladuuj(f"{root}/test", kategorie_zew=cats)
-
-# 2) Train (frozen ResNet18 backbone + new FC)
-model = train(X_train, y_train, X_val, y_val, cats, batch_size=64, epochs=10, learning_rate=1e-3)
-
-# 3) Evaluate
-ocen_model(model, X_test, y_test, cats)
-
-# 4) Predict a single image
-predict("path/to/dog.jpg", cats, model=model)
-```
 
 ## Important notes & fixes
 - **Imports**: `loader.py` imports `from src.downloader import pobierz_dane`. If your files are flat (no `src/` pkg), change it to `from downloader import pobierz_dane`.
